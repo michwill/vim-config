@@ -1,0 +1,15 @@
+[user]
+    email = michael@zerodb.io
+    name = Michael Egorov
+[push]
+    default = simple
+[alias]
+    ci = commit
+    st = status -sb
+    rb = rebase -i HEAD~10
+    ld = log -p --stat
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    purr = pull --rebase
+    difs = diff --staged
+    au = add -u
+    wipe = clean -fdx
