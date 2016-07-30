@@ -1,0 +1,74 @@
+URxvt*depth:	32
+URxvt*background:        [95]#091910
+URxvt*foreground:        #aaffc3
+!URxvt.font: xft:PT Mono:normal:pixelsize=20:antialias=true
+URxvt.font: xft:DejaVu Sans Mono:normal:pixelsize=18:antialias=true
+URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=18:antialias=true
+!URxvt.boldFont: xft:PT Mono:bold:pixelsize=13:antialias=true
+URxvt*scrollBar:	true
+URxvt*scrollBar_right:	true
+URxvt*scrollstyle:	plain
+URxvt*cursorUnderline: true
+URxvt*cursorBlink: true
+URxvt*saveLines:	500
+!URxvt*perl-ext:		searchable-scrollback<M-z>
+URxvt*inheritPixmap:false
+!URxvt*transparent:true
+!URxvt*tintColor:#282828
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+URxvt.perl-ext-common: tabbedex,clipboard,resize-font
+URxvt.resize-font.smaller: M-Down
+URxvt.resize-font.bigger: M-Up
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+URxvt.iso14755: False
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.colorUL: #86a2be
+URxvt*tabbed.tabbar-bg: 8
+URxvt*tabbed.tabbar-fg: 7
+URxvt*tabbed.tab-bg: 7
+
+! to match gnome-terminal "Linux console" scheme
+! foreground/background
+! black
+URxvt.color0  : #2E3436
+URxvt.color8  : #555753
+! red
+URxvt.color1  : #CC0000
+URxvt.color9  : #EF2929
+! green
+URxvt.color2  : #4E9A06
+URxvt.color10 : #8AE234
+! yellow
+URxvt.color3  : #C4A000
+URxvt.color11 : #FCE94F
+! blue
+URxvt.color4  : #3465A4
+URxvt.color12 : #729FCF
+! magenta
+URxvt.color5  : #75507B
+URxvt.color13 : #AD7FA8
+! cyan
+URxvt.color6  : #06989A
+URxvt.color14 : #34E2E2
+! white
+URxvt.color7  : #D3D7CF
+URxvt.color15 : #EEEEEC
+
+Xft.dpi: 96.0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.antialias: true
+
+URxvt.tabbed.autohide: true
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Right: perl:tabbedex:next_tab
+URxvt.keysym.Control-Left: perl:tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Left: perl:tabbedex:move_tab_left
+URxvt.keysym.Control-Shift-Right: perl:tabbedex:move_tab_right
+URxvt.keysym.Control-Up: perl:tabbedex:rename_tab
