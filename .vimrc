@@ -5,6 +5,8 @@ set lsp=8
 " Remove menu bar
 set guioptions-=m
 set t_Co=256
+set tw=79
+set colorcolumn=80
 
 " Remove toolbar
 set guioptions-=T
@@ -85,7 +87,7 @@ set mouse=a
 " Commenting latex
 au BufRead,BufNewFile *.tex map ]% :s/^/%/<CR>
 au BufRead,BufNewFile *.tex map ]u :s/^%//<CR>
-au BufRead,BufNewFile *.tex set spell
+au BufRead,BufNewFile *.tex set spell wrap linebreak nolist
 " au BufRead,BufNewFile *.py set foldmethod=indent
 
 " Markdown

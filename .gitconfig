@@ -13,3 +13,5 @@
     difs = diff --staged
     au = add -u
     wipe = clean -fdx
+[diff]
+	tool = meld
