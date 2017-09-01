@@ -1,12 +1,15 @@
 "set guifont=PT\ Mono\ 11
-set guifont=DejaVu\ Sans\ Mono\ 11
+set guifont=DejaVu\ Sans\ Mono\ 10
 "set guifont=Ubuntu\ Mono\ 11
 set lsp=8
 " Remove menu bar
 set guioptions-=m
 set t_Co=256
-set tw=79
-set colorcolumn=80
+set tw=159
+set colorcolumn=160
+
+au BufRead,BufNewFile *.py setlocal textwidth=80
+au BufRead,BufNewFile *.py setlocal colorcolumn=80
 
 " Remove toolbar
 set guioptions-=T
@@ -109,8 +112,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeToggle<CR>
 map <leader>c :TagbarToggle<CR>
 
 set foldlevel=20
@@ -122,23 +124,18 @@ autocmd BufWritePost *.py call Flake8()
 
 let g:flake8_quickfix_height=4
 
-"RopeVim auto-completion
-let ropevim_vim_completion = 1
-let ropevim_extended_complete = 1
-let g:ropevim_autoimport_modules = ["os.*","traceback"]
-imap <c-space> <C-R>=RopeCodeAssistInsertMode()<CR>
-
 
 " Function to activate a virtualenv in the embedded interpreter for
 " omnicomplete and other things like that.
 function LoadVirtualEnv(path)
     let which_python = a:path
-    python << EOF
+    python3 << EOF
 import vim
 from os.path import dirname, join, exists
 activate_this = join(dirname(vim.eval('l:which_python')), 'activate_this.py')
 if exists(activate_this):
-    execfile(activate_this, dict(__file__=activate_this))
+    with open(activate_this) as f:
+        exec(f.read(), dict(__file__=activate_this))
 EOF
 endfunction
 
@@ -146,6 +143,6 @@ let pythonenv = system('which python')
 
 " Only attempt to load this virtualenv if the defaultvirtualenv
 " actually exists, and we aren't running with a virtualenv active.
-if has("python")
+if has("python3")
     call LoadVirtualEnv(pythonenv)
 endif
