@@ -1,6 +1,7 @@
 [user]
     email = michwill@gmail.com
     name = Michael Egorov
+	signingkey = B7E0CCB4C21EBAB0
 [push]
     default = simple
 [alias]
@@ -8,10 +9,16 @@
     st = status -sb
     rb = rebase -i HEAD~10
     ld = log -p --stat
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     purr = pull --rebase
     difs = diff --staged
     au = add -u
     wipe = clean -fdx
+    rmaster = "!git fetch upstream && git reset --hard upstream/master"
+    ddiff = difftool --dir-diff
+    xshow = "!~/bin/git-xshow"
 [diff]
 	tool = meld
+    algorithm = minimal
+[commit]
+	gpgsign = true

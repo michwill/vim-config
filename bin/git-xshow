@@ -1,0 +1,4 @@
+#!/bin/bash
+
+parent="$(git show -s --format="%P" $1)"
+git ddiff $parent $1
